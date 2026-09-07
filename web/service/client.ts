@@ -552,6 +552,8 @@ export const consoleQuery: RouterUtils<typeof consoleClient> = createTanstackQue
         education: {
           get: {
             queryOptions: {
+              // Passive probe: every callsite degrades to "not a student", so no toast.
+              context: { silent: true },
               retry: false,
             },
           },

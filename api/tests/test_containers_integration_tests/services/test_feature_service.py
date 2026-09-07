@@ -517,7 +517,8 @@ class TestFeatureService:
             assert result.can_replace_logo is True
             assert result.model_load_balancing_enabled is True
             assert result.dataset_operator_enabled is True
-            assert result.education.enabled is True
+            # CLOUD-only: the Console education endpoints 404 on every other edition.
+            assert result.education.enabled is False
 
             # Verify default limitations
             assert result.members.size == 0
